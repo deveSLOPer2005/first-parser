@@ -32,5 +32,6 @@ for ($pageNumber = 1; $pageNumber <= 3; $pageNumber++) {
         });
         sleep(1);
 }
-echo "done. quotes count: " . count($allQuotes) . "\n";
-print_r($allQuotes);
+$jsonText = json_encode($allQuotes, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+file_put_contents('quotes.json', $jsonText);
+echo "done. quotes count: " . count($allQuotes) . "\n" . "check 'quotes.json' to see the result.";
